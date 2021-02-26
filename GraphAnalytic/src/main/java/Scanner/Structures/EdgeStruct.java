@@ -1,9 +1,15 @@
+package Scanner.Structures;
+
 import java.util.Objects;
 
 public class EdgeStruct {
     int weight;
 
-    EdgeStruct(int wt) {
+    public EdgeStruct() {
+        weight = 1;
+    }
+
+    public EdgeStruct(int wt) {
         weight = wt;
     }
 
