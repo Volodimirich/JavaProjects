@@ -10,15 +10,14 @@ public class NormalGraphScanner implements GraphScanner {
 
     private void AddEdgeBetweenVertexes (Integer v1, Integer v2, EdgeStruct edgeExist) {
 //      Проверяем, есть ли вообще в нашем графе данные вершины.
-        if (graph.containsKey(v1) || graph.containsKey(v2)) {
-            HashMap<Integer, HashSet<EdgeStruct>> edgeMap =  graph.containsKey(v1) ? graph.get(v1)  : graph.get(v2);
-            Integer v = graph.containsKey(v1) ? v2 : v1;
+        if (graph.containsKey(v1)) {
+            HashMap<Integer, HashSet<EdgeStruct>> edgeMap =  graph.get(v1);
 //          Если ребро существует, игнорируем. Иначе добавляем его
-            if (!edgeMap.containsKey(v)) {
+            if (!edgeMap.containsKey(v2)) {
                 EdgeStruct edge = edgeExist == null ? new EdgeStruct() : edgeExist;
                 HashSet <EdgeStruct> EdgeSet = new HashSet<>();
                 EdgeSet.add(edge);
-                edgeMap.put(v, EdgeSet);
+                edgeMap.put(v2, EdgeSet);
             }
         } else {
             EdgeStruct edge = edgeExist == null ? new EdgeStruct() : edgeExist;

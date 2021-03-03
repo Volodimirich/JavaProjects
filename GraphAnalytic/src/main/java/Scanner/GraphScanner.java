@@ -14,7 +14,7 @@ public interface GraphScanner {
     private Integer[] StrConverter(String[] splitedStr) {
         Integer[] result = new Integer[splitedStr.length];
         try {
-            for (int i = 0; i <= splitedStr.length; i++) {
+            for (int i = 0; i < splitedStr.length; i++) {
                 result[i] = Integer.parseInt(splitedStr[i]);
             }
             return result;
@@ -26,12 +26,15 @@ public interface GraphScanner {
 
     public default int GetVertexAmount() {
         System.out.println("Please, insert amount of vertexes");
-        return graphConsoleRead.nextInt();
+        int vertexAmount = graphConsoleRead.nextInt();
+        graphConsoleRead.nextLine();
+        return vertexAmount;
     }
 
     public default Integer[] LineScan(int vertexNum) {
-        System.out.printf("%d - ", vertexNum);
-        return StrConverter(graphConsoleRead.nextLine().replace(" ","").split(","));
+        System.out.printf("Neighbors for %d vertex:", vertexNum);
+        System.out.println();
+        return StrConverter(graphConsoleRead.nextLine().split(" "));
     }
 
     public HashMap<Integer, HashMap<Integer, HashSet<EdgeStruct>>> getGraphMap();
