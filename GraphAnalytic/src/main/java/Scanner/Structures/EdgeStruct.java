@@ -1,12 +1,16 @@
 package Scanner.Structures;
 
 import java.util.Objects;
+import java.util.Random;
+import java.util.UUID;
 
 public class EdgeStruct {
     int weight;
+    UUID id;
 
     public EdgeStruct() {
         weight = 1;
+        id = UUID.randomUUID();
     }
 
     public EdgeStruct(int wt) {
@@ -18,7 +22,7 @@ public class EdgeStruct {
         if (this == obj) return true;
         if (!(obj instanceof EdgeStruct)) return false;
         EdgeStruct that = (EdgeStruct) obj;
-        return weight == that.weight;
+        return id == that.id;
     }
 
     @Override
