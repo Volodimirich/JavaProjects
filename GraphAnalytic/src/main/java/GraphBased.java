@@ -1,7 +1,11 @@
+import GraphAlgs.BFS;
+import GraphAlgs.DFS;
+import GraphAlgs.PathModule;
 import Scanner.GraphScanner;
 import Scanner.NormalGraphScanner;
 import Scanner.Structures.EdgeStruct;
 
+import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -12,12 +16,10 @@ abstract public class GraphBased {
     HashMap<Integer, HashMap<Integer, HashSet<EdgeStruct>>> graph = null;
 
     public HashMap<Integer, HashSet<EdgeStruct>> Edges(Integer key) {
-        assert (graph != null) : "Graph is empty";
         return graph.getOrDefault(key, null);
     }
 
     public HashSet<EdgeStruct> Edges(Integer key1, Integer key2) {
-        assert (graph != null) : "Graph is empty";
         if (graph.containsKey(key1)) {
             return graph.get(key1).getOrDefault(key2, null);
         } else {
@@ -26,7 +28,6 @@ abstract public class GraphBased {
     }
 
     public Set<Integer> AdjacentVertexes(Integer key) {
-        assert (graph != null) : "Graph is empty";
         if (graph.containsKey(key)) {
             return graph.get(key).keySet();
         } else {
@@ -46,6 +47,15 @@ abstract public class GraphBased {
             }
             System.out.println();
         }
+    }
+
+    public void FindPath(PathFind type) {
+        PathModule finder = switch (type) {
+            case BFS -> new BFS(graph, 0, 1);
+            case DFS -> new DFS(graph, 0, 1);
+        };
+        finder.CalcPath();
+        finder.PrintPath();
     }
 
     abstract public void GetData();

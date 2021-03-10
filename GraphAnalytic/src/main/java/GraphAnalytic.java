@@ -1,3 +1,4 @@
+import GraphAlgs.BFS;
 import Scanner.Structures.EdgeStruct;
 
 import java.io.IOError;
@@ -8,8 +9,6 @@ import Scanner.*;
 
 
 public class GraphAnalytic {
-
-
 
     public static void main(String[] args) {
         ProgramState state = ProgramState.GraphReading;
@@ -31,6 +30,7 @@ public class GraphAnalytic {
             if (chosenOne != null) {
                 GraphBased graph = new Graph(chosenOne);
                 graph.GraphOut();
+                graph.FindPath(PathFind.DFS);
             }
         } catch (NoSuchElementException e) {
             System.out.println("Your choose was incorrect!");

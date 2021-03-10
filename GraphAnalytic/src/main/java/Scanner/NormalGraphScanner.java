@@ -32,7 +32,7 @@ public class NormalGraphScanner implements GraphScanner {
 
     public void EdgeLogicStrategy(Integer v1, Integer v2) {
         AddEdgeBetweenVertexes(v1, v2, null);
-        AddEdgeBetweenVertexes(v1, v2, graph.get(v1).get(v2).iterator().next());
+        AddEdgeBetweenVertexes(v2, v1, graph.get(v1).get(v2).iterator().next());
     }
 
 

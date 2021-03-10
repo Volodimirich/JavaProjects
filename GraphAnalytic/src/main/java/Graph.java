@@ -8,9 +8,9 @@ import java.util.Set;
 
 public class Graph extends GraphBased {
         public Graph(GraphScanner graphScan) {
-            this.scan = graphScan;
-            this.scan.ReadIncidence();
-            this.graph = this.scan.getGraphMap();
+            scan = graphScan;
+            scan.ReadIncidence();
+            graph = scan.getGraphMap();
         }
         public void GetData() {
             System.out.println("Hello");
