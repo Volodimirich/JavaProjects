@@ -5,9 +5,11 @@ import Scanner.Structures.EdgeStruct;
 import java.util.*;
 
 public class BFS extends PathModule {
-
+    ArrayDeque<Integer> pathEdges;
     public BFS(HashMap<Integer, HashMap<Integer, HashSet<EdgeStruct>>> graph, Integer v1, Integer v2) {
         super(graph, v1, v2);
+        pathEdges = new ArrayDeque<Integer>();
+
     }
 
     @Override

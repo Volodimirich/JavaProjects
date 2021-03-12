@@ -15,25 +15,6 @@ abstract public class GraphBased {
     GraphScanner scan;
     HashMap<Integer, HashMap<Integer, HashSet<EdgeStruct>>> graph = null;
 
-    public HashMap<Integer, HashSet<EdgeStruct>> Edges(Integer key) {
-        return graph.getOrDefault(key, null);
-    }
-
-    public HashSet<EdgeStruct> Edges(Integer key1, Integer key2) {
-        if (graph.containsKey(key1)) {
-            return graph.get(key1).getOrDefault(key2, null);
-        } else {
-            return null;
-        }
-    }
-
-    public Set<Integer> AdjacentVertexes(Integer key) {
-        if (graph.containsKey(key)) {
-            return graph.get(key).keySet();
-        } else {
-            return null;
-        }
-    }
 
     public void GraphOut() {
         System.out.println(Arrays.toString(graph.keySet().toArray()));

@@ -15,4 +15,7 @@ public class EdgeStruct {
         weight = wt;
     }
 
+    public int getWeight() {
+        return weight;
+    }
 }

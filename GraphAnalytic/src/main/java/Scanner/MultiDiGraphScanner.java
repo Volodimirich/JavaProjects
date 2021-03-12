@@ -8,10 +8,10 @@ import java.util.HashSet;
 public class MultiDiGraphScanner implements GraphScanner {
     private HashMap<Integer, HashMap<Integer, HashSet<EdgeStruct>>> graph = new  HashMap<> ();
 
-    private void AddEdgeBetweenVertexes (Integer v1, Integer v2, EdgeStruct edgeExist) {
+    private void AddEdgeBetweenVertexes(Integer v1, Integer v2, Integer weight) {
         if (graph.containsKey(v1)) {
             HashMap<Integer, HashSet<EdgeStruct>> edgeMap =  graph.get(v1);
-            EdgeStruct edge = edgeExist == null ? new EdgeStruct() : edgeExist;
+            EdgeStruct edge = new EdgeStruct(weight);
             if (!edgeMap.containsKey(v2)) {
                 HashSet <EdgeStruct> EdgeSet = new HashSet<>();
                 EdgeSet.add(edge);
@@ -20,7 +20,7 @@ public class MultiDiGraphScanner implements GraphScanner {
                 edgeMap.get(v2).add(edge);
             }
         } else {
-            EdgeStruct edge = edgeExist == null ? new EdgeStruct() : edgeExist;
+            EdgeStruct edge = new EdgeStruct(weight);
             HashSet <EdgeStruct> EdgeSet = new HashSet<>();
             HashMap <Integer, HashSet<EdgeStruct>> EdgeMap = new HashMap<>();
 
@@ -30,8 +30,9 @@ public class MultiDiGraphScanner implements GraphScanner {
         }
     }
 
-    public void EdgeLogicStrategy(Integer v1, Integer v2) {
-        AddEdgeBetweenVertexes(v1, v2, null);
+    public void EdgeLogicStrategy(Integer v1, Integer v2, Integer weight)
+    {
+        AddEdgeBetweenVertexes(v1, v2, weight);
     }
 
 
@@ -39,10 +40,6 @@ public class MultiDiGraphScanner implements GraphScanner {
         return graph;
     }
 
-    @Override
-    public void ReadAdjancy() {
-        int vertexAmount = GetVertexAmount();
 
-    }
 
 }

@@ -9,7 +9,7 @@ import java.util.Set;
 public class Graph extends GraphBased {
         public Graph(GraphScanner graphScan) {
             scan = graphScan;
-            scan.ReadIncidence();
+            scan.ReadAdjancy();
             graph = scan.getGraphMap();
         }
         public void GetData() {

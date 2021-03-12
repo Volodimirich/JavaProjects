@@ -11,7 +11,6 @@ public abstract class PathModule {
     HashMap<Integer, HashMap<Integer, HashSet<EdgeStruct>>> graph;
     boolean finished = false;
     HashSet <Integer> visited;
-    ArrayDeque<Integer> pathEdges = new ArrayDeque<Integer>();
     Integer[] path;
     Integer start;
     Integer end;
@@ -19,7 +18,7 @@ public abstract class PathModule {
     PathModule(HashMap<Integer, HashMap<Integer, HashSet<EdgeStruct>>> gr, Integer v1, Integer v2) {
         graph = gr;
         visited = new HashSet<>();
-        path = new Integer[graph.size()];
+        path = new Integer [graph.size()];
         start = v1;
         end = v2;
     }
